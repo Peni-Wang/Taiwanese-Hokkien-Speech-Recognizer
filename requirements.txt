@@ -1,0 +1,10 @@
+datasets==1.11.0
+jiwer==2.2.0
+kenlm @ https://github.com/kpu/kenlm/archive/master.zip
+librosa==0.6.3
+numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1596233718326/work
+regex==2020.10.15
+SoundFile==0.10.3.post1
+torch==1.8.0+cu111
+transformers==4.4.0
+
