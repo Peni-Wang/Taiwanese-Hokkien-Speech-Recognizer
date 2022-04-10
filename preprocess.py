@@ -3,7 +3,7 @@
 
 Need to prepare json files(audio path, transcribe) & regex.txt(punctuation)
 ->
-Output train.json & test.json {path, text} & vocab.json {character: token id}
+Output train.json & test.json {path, text} & vocab.json {token: token id}
 
 """
 
@@ -78,8 +78,8 @@ def extract_all_chars(batch):
   vocab = list(set(all_text))
   return {"vocab": [vocab], "all_text": [all_text]}
 vocabs = tat.map(extract_all_chars, batched=True, batch_size=-1, keep_in_memory=True, remove_columns=tat.column_names["train"])
-vocab_list = list(vocabs["train"]["vocab"][0]) # vocab list[character]
-vocab_dict = {v: k for k, v in enumerate(vocab_list)} # vocab dictionary{character: token id}
+vocab_list = list(vocabs["train"]["vocab"][0]) # vocab list[token]
+vocab_dict = {v: k for k, v in enumerate(vocab_list)} # vocab dictionary{token: token id}
 
 # add delimiter & unknown & padding token
 vocab_dict["|"] = vocab_dict[" "]
